@@ -15,31 +15,31 @@ pipeline{
                 }
             }
         }
-        stage{
-            steps('Build'){
+        stage('Build'){
+            steps{
                 echo 'Building'
             }
         }
         stage('Test'){
             steps{
-                
+                echo 'Testing'
             }
         }
-        stage{
+        stage('Deploy'){
             steps{
-                
+                echo 'Deploying'
             }
         }
     }
     post{
         always {
-
+            echo "Hello Always"
         }
         success {
-
+            echo "Hello Success"
         }
         failure {
-            
+            echo "Hello Failure"
         }
     }
 }
