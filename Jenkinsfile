@@ -19,7 +19,7 @@ pipeline{
                 }
             }
         }
-        stage('Install Dependices'){
+        stage('Install Dependices '){
             steps{
                 script{
                     sh """
