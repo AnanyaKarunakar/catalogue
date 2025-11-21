@@ -28,21 +28,21 @@ pipeline{
                 }
             }
         }
-        // stage('Docker Build & Push') {
-        //     steps {
-        //         script {
-        //             withAWS(region: 'us-east-1', credentials: 'AWS-CREDENTIAL-ID') {
-        //                     sh '''
-        //                         aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 277789128698.dkr.ecr.us-east-1.amazonaws.com
+        stage('Docker Build & Push') {
+            steps {
+                script {
+                    withAWS(region: 'us-east-1', credentials: 'AWS-CREDENTIAL-ID') {
+                            sh '''
+                                aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 277789128698.dkr.ecr.us-east-1.amazonaws.com
 
-        //                         docker build -t 277789128698.dkr.ecr.us-east-1.amazonaws.com/roboshop/catalogue:${appVersion} .
+                                docker build -t 277789128698.dkr.ecr.us-east-1.amazonaws.com/roboshop/catalogue:${appVersion} .
                             
-        //                         docker push 277789128698.dkr.ecr.us-east-1.amazonaws.com/roboshop/catalogue:${appVersion}
-        //                     '''
-        //             }
-        //         }
-        //     }
-        // }
+                                docker push 277789128698.dkr.ecr.us-east-1.amazonaws.com/roboshop/catalogue:${appVersion}
+                            '''
+                    }
+                }
+            }
+        }
 
         // stage('Docker Build'){
         //     steps{
