@@ -34,6 +34,7 @@ pipeline{
                 script{
                     sh """
                         echo "Unit Testing"
+                        echo "Functional Testing"
                     """
                 }
             }
